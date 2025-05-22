@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Parul!</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Montserrat:wght@400;600&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #ff80bf;
+            background-image: radial-gradient(circle, #ff80bf 0%, #ff66a3 25%, #ff4d88 50%, #ff1a66 100%);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .pacifico-font {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .hindi-poetry { 
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #c00;
+        }
+
+        /* Birthday Cake */
+        .cake {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .cake-base {
+            width: 250px;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .cake-middle {
+            width: 220px;
+            height: 60px;
+            background-color: #ffe6f2;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 100px;
+            left: 15px;
+        }
+
+        .cake-top {
+            width: 180px;
+            height: 40px;
+            background-color: #ffcceb;
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            bottom: 160px;
+            left: 35px;
+        }
+
+        .frosting {
+            background-color: #ff80bf;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .candle {
+            width: 10px;
+            height: 40px;
+            background-color: #ffd700;
+            position: absolute;
+            bottom: 200px;
+            left: 120px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .flame {
+            width: 15px;
+            height: 25px;
+            background-color: #ff5722;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            bottom: 240px;
+            left: 117px;
+            z-index: 11;
+            box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800, 0 0 30px #ffc107;
+            animation: flicker 0.5s infinite alternate;
+        }
+
+        .cake-cut {
+            width: 0;
+            height: 0;
+            border-right: 80px solid transparent;
+            border-bottom: 200px solid transparent;
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            z-index: 15;
+            transform: rotate(30deg);
+            display: none;
+        }
+
+        .knife {
+            width: 140px;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 120px;
+            left: 150px;
+            transform: rotate(45deg);
+            display: none;
+            z-index: 20;
+            transition: all 1s;
+        }
+
+        /* Photo Animation */
+        .photo-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .photo {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: floatPhotos 15s infinite;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 100;
+        }
+
+        /* Animations */
+        @keyframes floatPhotos {
+            0% { transform: translate(-100%, -100%) rotate(-10deg); opacity: 0; }
+            10% { transform: translate(100px, 100px) rotate(5deg); opacity: 1; }
+            20% { transform: translate(300px, 300px) rotate(10deg); opacity: 1; }
+            30% { transform: translate(500px, 100px) rotate(5deg); opacity: 1; }
+            40% { transform: translate(700px, 300px) rotate(-5deg); opacity: 1; }
+            50% { transform: translate(300px, 500px) rotate(-10deg); opacity: 1; }
+            60% { transform: translate(100px, 300px) rotate(-5deg); opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(-100%, -100%) rotate(0deg); opacity: 0; }
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .stage {
+            transition: all 1.5s ease;
+        }
+
+        .button-3d {
+            background-color: #ff4d88;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 0 #d9376c, 0 10px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.1s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button-3d:active {
+            top: 8px;
+            box-shadow: 0 0 0 #d9376c, 0 0 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .celebration-text {
+            position: fixed;
+            font-size: 60px;
+            color: gold;
+            text-shadow: 3px 3px 0 #ff4d88, -3px 3px 0 #ff4d88, 3px -3px 0 #ff4d88, -3px -3px 0 #ff4d88;
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s;
+        }
+
+        /* Heart styling */
+        .heart {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -15px;
+            top: 0;
+        }
+
+        /* Preload images */
+        .preloader {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* Poetry popup animation */
+        .poetry-popup {
+            animation: popIn 1s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 640px) {
+            .dancing-font {
+                font-size: 2.5rem;
+            }
+            
+            .message-container {
+                padding: 20px;
+                margin: 15px;
+            }
+            
+            .hindi-poetry {
+                font-size: 1.2rem;
+            }
+            
+            .cake {
+                transform: scale(0.8);
+            }
+            
+            .button-3d {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            
+            .celebration-text {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center py-12 px-4">
+    <!-- Preload images -->
+    <div class="preloader">
+        <img src="https://i.ibb.co/Y4ktCLkt/parul-6.jpg">
+        <img src="https://i.ibb.co/pB3N3n22/parul-8.jpg">
+        <img src="https://i.ibb.co/9HstRKkJ/parul-7.jpg">
+        <img src="https://i.ibb.co/KcC3XNF4/parul-4.jpg">
+        <img src="https://i.ibb.co/1JPdzgzb/parul-3.jpg">
+        <img src="https://i.ibb.co/RkBxN1BS/parul-1.jpg">
+    </div>
+    
+    <!-- Photo Background Container -->
+    <div class="photo-container" id="photoContainer"></div>
+    
+    <!-- Celebration text -->
+    <div class="celebration-text" id="celebrationText">HAPPY BIRTHDAY PARUL!</div>
+    
+    <!-- Main Content -->
+    <div class="w-full max-w-4xl">
+        
+        <!-- Stage 1: Initial Welcome -->
+        <div id="stage1" class="stage flex flex-col items-center">
+            <div class="message-container mb-10 text-center">
+                <h1 class="dancing-font text-5xl md:text-6xl text-pink-600 mb-6">Dear Parul Sharma</h1>
+                <p class="text-xl md:text-2xl mb-8">Ready to start your birthday celebration?</p>
+                <button id="startButton" class="button-3d">Let's Celebrate</button>
+            </div>
+        </div>
+        
+        <!-- Stage 2: Birthday Greeting -->
+        <div id="stage2" class="stage hidden flex flex-col items-center">
+            <div class="message-container mb-10 text-center">
+                <h1 class="dancing-font text-5xl md:text-6xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-6">Happy Birthday Parul!</h1>
+                <p class="pacifico-font text-2xl md:text-3xl text-pink-600 mb-8">Today is all about you...</p>
+                <div class="text-lg md:text-xl space-y-4">
+                    <p>Your smile lights up every room you walk into,</p>
+                    <p>Your grace and beauty leave me spellbound every time I see you,</p>
+                    <p>On your special day, I just want to say...</p>
+                    <p class="text-xl md:text-2xl font-bold mt-6">You make the world a more beautiful place just by being in it!</p>
+                    
+                    <!-- Flirty Poetry Section -->
+                    <div class="mt-8 dancing-font text-pink-700 text-2xl">
+                        <p>Your eyes sparkle brighter than birthday candles,</p>
+                        <p>Your laugh is sweeter than any cake's delight,</p>
+                        <p>If beauty were time, you'd be eternity,</p>
+                        <p>And I'd happily lose track of day and night.</p>
+                    </div>
+                    
+                    <div class="mt-6 italic text-pink-600">
+                        <p>They say age is just a number,</p>
+                        <p>But you my dear, are timeless perfection,</p>
+                        <p>Every year only makes you more stunning,</p>
+                        <p>A fact that needs no further inspection.</p>
+                    </div>
+                </div>
+                <button id="showCakeButton" class="button-3d mt-10">Continue</button>
+            </div>
+        </div>
+        
+        <!-- Stage 3: The Cake -->
+        <div id="stage3" class="stage hidden flex flex-col items-center">
+            <div class="message-container mb-10 text-center">
+                <h2 class="dancing-font text-4xl md:text-5xl text-pink-600 mb-6">Make a Wish & Blow the Candle!</h2>
+                
+                <div class="cake-container relative my-12 h-64 w-full">
+                    <div class="cake mx-auto">
+                        <div class="cake-base"></div>
+                        <div class="cake-middle"></div>
+                        <div class="cake-top"></div>
+                        <div class="candle" id="candle"></div>
+                        <div class="flame" id="flame"></div>
+                        <div class="knife" id="knife"></div>
+                        <div class="cake-cut" id="cakeCut"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-6 dancing-font text-2xl text-pink-700">
+                    <p>Make a wish my beautiful Parul,</p>
+                    <p>But know this wish I make for you,</p>
+                    <p>May all your dreams come true today,</p>
+                    <p>And may I be part of them too!</p>
+                </div>
+                
+                <button id="blowCandleButton" class="button-3d mb-4">Blow Candle</button>
+            </div>
+        </div>
+        
+        <!-- Stage 4: Final Message with Hindi Poetry -->
+        <div id="stage4" class="stage hidden flex flex-col items-center">
+            <div class="message-container mb-10 text-center">
+                <h2 class="dancing-font text-4xl md:text-5xl text-pink-600 mb-8">प्यारी पारुल के लिए</h2>
+                
+                <div class="hindi-poetry poetry-popup mb-8">
+                    <p>तेरी मुस्कान की रौशनी में, चमकता है ये जहाँ सारा,<br>
+                    पारुल तू है जैसे फूलों में, खिलता हुआ गुलाब न्यारा।<br>
+                    आँखों में समाया है सपनों का, एक मधुर सा सागर,<br>
+                    तेरे बिन ये दिल बेचैन है, हो तू ही मेरा अधूरा अफसाना।</p>
+
+                    <p class="mt-4">जन्मदिन पर ये दुआ है मेरी, हर पल तेरा मुस्कुराए,<br>
+                    खुशियों की बहार लाए, दर्द कभी तेरे न आए।<br>
+                    तेरे साथ बिताए हर पल, यादों का हार बन जाए,<br>
+                    पारुल मेरी ये चाहत है, तू मेरे दिल में बस जाए।</p>
+                </div>
+                
+                <div class="text-lg md:text-xl space-y-6 mb-10">
+                    <p>Dear Parul,</p>
+                    <p>Your beauty is matched only by your kindness.</p>
+                    <p>That gorgeous smile of yours makes my heart skip a beat every time.</p>
+                    <p>The way you wear that beautiful pink outfit is absolutely stunning.</p>
+                    
+                    <div class="dancing-font text-2xl text-pink-700 my-6">
+                        <p>If I could rewrite the stars,</p>
+                        <p>I'd write our names side by side,</p>
+                        <p>For in this universe of billions,</p>
+                        <p>It's you who makes my heart collide.</p>
+                    </div>
+                    
+                    <p>If birthday wishes come true, I hope yours brings all the happiness you deserve.</p>
+                    <p>May your day be filled with joy, laughter, and perhaps a little mischief...</p>
+                    
+                    <div class="italic text-pink-600 mt-6">
+                        <p>They say perfection doesn't exist,</p>
+                        <p>But then they haven't seen your face,</p>
+                        <p>Happy birthday to the woman who proves,</p>
+                        <p>That angels walk among us with grace.</p>
+                    </div>
+                    
+                    <p class="mt-8 text-xl md:text-2xl font-bold text-pink-600">The world is a better place with you in it.</p>
+                    <p class="mt-4 dancing-font text-3xl">With love and admiration,</p>
+                    <p class="pacifico-font text-2xl">Aditya</p>
+                </div>
+                
+                <button id="restartButton" class="button-3d mt-8">Celebrate Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Updated Image URLs with direct imgbb links
+            const imageUrls = [
+                "https://i.ibb.co/Y4ktCLkt/parul-6.jpg",
+                "https://i.ibb.co/pB3N3n22/parul-8.jpg",
+                "https://i.ibb.co/9HstRKkJ/parul-7.jpg",
+                "https://i.ibb.co/KcC3XNF4/parul-4.jpg",
+                "https://i.ibb.co/1JPdzgzb/parul-3.jpg",
+                "https://i.ibb.co/RkBxN1BS/parul-1.jpg"
+            ];
+            
+            // Stage elements
+            const stage1 = document.getElementById('stage1');
+            const stage2 = document.getElementById('stage2');
+            const stage3 = document.getElementById('stage3');
+            const stage4 = document.getElementById('stage4');
+            
+            // Buttons
+            const startButton = document.getElementById('startButton');
+            const showCakeButton = document.getElementById('showCakeButton');
+            const blowCandleButton = document.getElementById('blowCandleButton');
+            const restartButton = document.getElementById('restartButton');
+            
+            // Cake elements
+            const flame = document.getElementById('flame');
+            const knife = document.getElementById('knife');
+            const cakeCut = document.getElementById('cakeCut');
+            const celebrationText = document.getElementById('celebrationText');
+            
+            // Photo container
+            const photoContainer = document.getElementById('photoContainer');
+            
+            // Preload images to ensure they show up
+            function preloadImages(urls) {
+                urls.forEach(url => {
+                    const img = new Image();
+                    img.src = url;
+                });
+            }
+            
+            // Initialize photos with better loading
+            function initPhotos() {
+                photoContainer.innerHTML = '';
+                
+                // Create more photo elements than URLs to ensure variety
+                for (let i = 0; i < 20; i++) {
+                    const delay = Math.random() * 15;
+                    const duration = 10 + Math.random() * 15;
+                    const randomImgIndex = Math.floor(Math.random() * imageUrls.length);
+                    
+                    const photo = document.createElement('img');
+                    photo.src = imageUrls[randomImgIndex];
+                    photo.className = 'photo';
+                    photo.style.top = `${Math.random() * 100}%`;
+                    photo.style.left = `${Math.random() * 100}%`;
+                    photo.style.animationDelay = `${delay}s`;
+                    photo.style.animationDuration = `${duration}s`;
+                    
+                    // Add error handling
+                    photo.onerror = function() {
+                        this.style.display = 'none';
+                    };
+                    
+                    photoContainer.appendChild(photo);
+                }
+            }
+            
+            // Initialize frosting on cake
+            function initCakeFrosting() {
+                const cakeBase = document.querySelector('.cake-base');
+                const cakeMiddle = document.querySelector('.cake-middle');
+                const cakeTop = document.querySelector('.cake-top');
+                
+                // Add frosting to cake layers
+                for (let i = 0; i < 15; i++) {
+                    const frosting = document.createElement('div');
+                    frosting.className = 'frosting';
+                    frosting.style.bottom = `${95 + Math.random() * 10}px`;
+                    frosting.style.left = `${i * 17 + Math.random() * 5}px`;
+                    cakeBase.appendChild(frosting);
+                }
+                
+                for (let i = 0; i < 13; i++) {
+                    const frosting = document.createElement('div');
+                    frosting.className = 'frosting';
+                    frosting.style.bottom = `${55 + Math.random() * 10}px`;
+                    frosting.style.left = `${i * 17 + Math.random() * 5}px`;
+                    cakeMiddle.appendChild(frosting);
+                }
+                
+                for (let i = 0; i < 10; i++) {
+                    const frosting = document.createElement('div');
+                    frosting.className = 'frosting';
+                    frosting.style.bottom = `${35 + Math.random() * 10}px`;
+                    frosting.style.left = `${i * 17 + Math.random() * 5}px`;
+                    cakeTop.appendChild(frosting);
+                }
+            }
+            
+            // Create confetti
+            function createConfetti() {
+                const colors = ['#ff4d88', '#ff80bf', '#ffb3d9', '#ffcceb', '#ffe6f2', '#bf00ff', '#ff00bf', '#ffff00', '#00ffff'];
+                
+                for (let i = 0; i < 150; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.top = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `scale(${Math.random() * 2 + 1})`;
+                    document.body.appendChild(confetti);
+                    
+                    const animationDuration = Math.random() * 3 + 2;
+                    const xMovement = Math.random() * 300 - 150;
+                    
+                    setTimeout(() => {
+                        confetti.style.transition = `all ${animationDuration}s ease-out`;
+                        confetti.style.transform = `translate(${xMovement}px, ${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+                        confetti.style.opacity = '1';
+                        
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, animationDuration * 1000);
+                    }, 100);
+                }
+            }
+            
+            // Create hearts
+            function createHearts() {
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart';
+                        heart.style.left = `${Math.random() * 100}%`;
+                        heart.style.bottom = '-30px';
+                        document.body.appendChild(heart);
+                        
+                        const size = Math.random() * 20 + 10;
+                        heart.style.width = `${size}px`;
+                        heart.style.height = `${size}px`;
+                        
+                        const animationDuration = Math.random() * 3 + 3;
+                        const xMovement = Math.random() * 100 - 50;
+                        
+                        setTimeout(() => {
+                            heart.style.transition = `all ${animationDuration}s ease-out`;
+                            heart.style.transform = `translate(${xMovement}px, -${window.innerHeight}px) rotate(45deg)`;
+                            heart.style.opacity = '1';
+                            
+                            setTimeout(() => {
+                                heart.style.opacity = '0';
+                                setTimeout(() => {
+                                    heart.remove();
+                                }, 1000);
+                            }, animationDuration * 800);
+                        }, 100);
+                    }, i * 300);
+                }
+            }
+            
+            // Show celebration text
+            function showCelebrationText() {
+                celebrationText.style.left = `${Math.random() * 50}%`;
+                celebrationText.style.top = `${Math.random() * 50}%`;
+                celebrationText.style.opacity = '1';
+                celebrationText.style.transform = 'scale(1)';
+                
+                setTimeout(() => {
+                    celebrationText.style.opacity = '0';
+                    celebrationText.style.transform = 'scale(0)';
+                }, 3000);
+            }
+            
+            // Automatic cake cutting sequence
+            function autoCutCake() {
+                knife.style.display = 'block';
+                
+                setTimeout(() => {
+                    knife.style.transform = 'rotate(90deg) translateY(-50px)';
+                    
+                    setTimeout(() => {
+                        cakeCut.style.display = 'block';
+                        createConfetti();
+                        showCelebrationText();
+                        
+                        setTimeout(() => {
+                            stage3.classList.add('hidden');
+                            stage4.classList.remove('hidden');
+                        }, 3000);
+                    }, 1000);
+                }, 500);
+            }
+            
+            // Preload images first
+            preloadImages(imageUrls);
+            
+            // Button event listeners
+            startButton.addEventListener('click', function() {
+                stage1.classList.add('hidden');
+                stage2.classList.remove('hidden');
+                initPhotos();
+            });
+            
+            showCakeButton.addEventListener('click', function() {
+                stage2.classList.add('hidden');
+                stage3.classList.remove('hidden');
+                initCakeFrosting();
+            });
+            
+            blowCandleButton.addEventListener('click', function() {
+                flame.style.opacity = '0';
+                createHearts();
+                
+                // Automatic cake cutting after 1.5 seconds
+                setTimeout(autoCutCake, 1500);
+            });
+            
+            restartButton.addEventListener('click', function() {
+                location.reload();
+            });
+            
+            // Initialize photos immediately when page loads
+            initPhotos();
+        });
+    </script>
+</body>
+</html>
